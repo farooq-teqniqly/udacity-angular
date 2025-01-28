@@ -1,1 +1,1 @@
-# udacity-angular
+# angular-starter-template
