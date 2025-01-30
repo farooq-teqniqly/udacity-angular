@@ -1,7 +1,9 @@
 <div>
   <button>
     <img
-      [src]="'assets/users/' + selectedUser.avatar"
+      ngSrc="{{'assets/users/' + selectedUser.avatar}}"
+      width="64"
+      height="64"
       [alt]="selectedUser.name"
     />
     <span>{{ selectedUser.name }}</span>
