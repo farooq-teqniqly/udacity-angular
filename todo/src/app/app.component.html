@@ -8,6 +8,10 @@
     }
   </ul>
   <div>
-    <app-task [userName]="selectedUserName()" />
+    @if (selectedUserName()) {
+      <app-task [userName]="selectedUserName()" />
+    } @else {
+      <h2>Select a user to view their tasks.</h2>
+    }
   </div>
 </main>
