@@ -1,4 +1,4 @@
-import { Component, input, computed } from "@angular/core";
+import { Component, input, computed, output } from "@angular/core";
 import { NgOptimizedImage } from "@angular/common";
 
 @Component({
@@ -9,7 +9,13 @@ import { NgOptimizedImage } from "@angular/common";
   styleUrl: "./user.component.css",
 })
 export class UserComponent {
+  id = input.required<string>();
   avatar = input.required<string>();
   name = input.required<string>();
   imagePath = computed(() => `assets/users/${this.avatar()}`);
+  select = output<string>();
+
+  onSelectUser() {
+    this.select.emit(this.id());
+  }
 }
