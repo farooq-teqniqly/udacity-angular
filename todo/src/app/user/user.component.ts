@@ -3,6 +3,7 @@ import { DUMMY_USERS } from "../dummy-users";
 import { NgOptimizedImage } from "@angular/common";
 
 const randomIndex = () => Math.floor(Math.random() * DUMMY_USERS.length);
+const randomUser = () => DUMMY_USERS[randomIndex()];
 
 @Component({
   selector: "app-user",
@@ -12,13 +13,13 @@ const randomIndex = () => Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: "./user.component.css",
 })
 export class UserComponent {
-  selectedUser = DUMMY_USERS[randomIndex()];
+  selectedUser = randomUser();
 
   get imagePath() {
     return "assets/users/" + this.selectedUser.avatar;
   }
 
   onSelectUser() {
-    console.log("onSelectUser event raised!");
+    this.selectedUser = randomUser();
   }
 }
