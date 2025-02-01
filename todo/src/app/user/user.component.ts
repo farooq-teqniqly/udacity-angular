@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input, computed } from "@angular/core";
 import { NgOptimizedImage } from "@angular/common";
 
 @Component({
@@ -9,10 +9,7 @@ import { NgOptimizedImage } from "@angular/common";
   styleUrl: "./user.component.css",
 })
 export class UserComponent {
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
-
-  get imagePath() {
-    return `assets/users/${this.avatar}`;
-  }
+  avatar = input.required<string>();
+  name = input.required<string>();
+  imagePath = computed(() => `assets/users/${this.avatar()}`);
 }
