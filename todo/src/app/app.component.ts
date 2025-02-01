@@ -12,10 +12,10 @@ import { TaskComponent } from "./task/task.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserName = signal<string>("");
+  selectedUserName = signal<string | null>(null);
 
   onSelectUser(id: string) {
     const userName = DUMMY_USERS.find((user) => user.id === id)?.name;
-    this.selectedUserName.set(userName ?? "");
+    this.selectedUserName.set(userName ?? null);
   }
 }
