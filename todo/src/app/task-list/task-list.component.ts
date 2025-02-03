@@ -1,4 +1,4 @@
-import { Component, computed, input } from "@angular/core";
+import { Component, computed, input, signal } from "@angular/core";
 import { TaskComponent } from "../task/task.component";
 import { DUMMY_TASKS } from "../dummy-tasks";
 
@@ -12,10 +12,13 @@ import { DUMMY_TASKS } from "../dummy-tasks";
 export class TaskListComponent {
   userId = input.required<string>();
   userName = input.required<string>();
+  tasks = signal(DUMMY_TASKS);
 
   selectedUserTasks = computed(() =>
-    this.tasks.filter((task) => task.userId === this.userId())
+    this.tasks().filter((task) => task.userId === this.userId())
   );
 
-  tasks = DUMMY_TASKS;
+  onTaskComplete(taskId: string) {
+    this.tasks.set(this.tasks().filter((task) => task.id !== taskId));
+  }
 }
