@@ -1,7 +1,7 @@
 import { Component, signal } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS } from "./dummy-users";
+import { DUMMY_USERS, User } from "./dummy-users";
 import { TaskListComponent } from "./task-list/task-list.component";
 
 @Component({
@@ -12,10 +12,10 @@ import { TaskListComponent } from "./task-list/task-list.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserName = signal<string>("");
+  selectedUser = signal<User | undefined>(undefined);
 
   onSelectUser(id: string) {
-    const userName = DUMMY_USERS.find((user) => user.id === id)?.name;
-    this.selectedUserName.set(userName ?? "");
+    const user = DUMMY_USERS.find((user) => user.id === id);
+    this.selectedUser.set(user ?? undefined);
   }
 }
