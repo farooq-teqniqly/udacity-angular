@@ -1,8 +1,9 @@
 import { Component, signal } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS, User } from "./dummy-users";
+import { DUMMY_USERS } from "./dummy-users";
 import { TaskListComponent } from "./task-list/task-list.component";
+import { User } from "./models";
 
 @Component({
   selector: "app-root",

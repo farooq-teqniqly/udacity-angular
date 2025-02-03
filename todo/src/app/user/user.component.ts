@@ -1,11 +1,6 @@
 import { Component, input, computed, output } from "@angular/core";
 import { NgOptimizedImage } from "@angular/common";
-
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { User } from "../models";
 
 @Component({
   selector: "app-user",

@@ -1,8 +1,4 @@
-export interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
+import { User } from "./models";
 
 export const DUMMY_USERS: User[] = [
   {
