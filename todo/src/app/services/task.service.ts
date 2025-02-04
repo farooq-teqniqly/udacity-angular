@@ -41,13 +41,13 @@ export class TaskService {
   }
 
   addTask(newTask: NewTask, userId: string) {
-    this.tasks.set([
+    this.tasks.update((tasks) => [
       {
         ...newTask,
         userId,
         id: crypto.randomUUID(),
       },
-      ...this.tasks(),
+      ...tasks,
     ]);
   }
 
