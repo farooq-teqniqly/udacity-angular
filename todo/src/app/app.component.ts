@@ -1,7 +1,6 @@
 import { Component, signal } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS } from "./dummy-users";
 import { TaskListComponent } from "./task-list/task-list.component";
 import { User } from "./models";
 import { UserService } from "./services/user.service";
@@ -13,10 +12,12 @@ import { UserService } from "./services/user.service";
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  users = DUMMY_USERS;
+  users: User[] = [];
   selectedUser = signal<User | undefined>(undefined);
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    this.users = this.userService.getAllUsers();
+  }
 
   onSelectUser(userId: string) {
     const user = this.userService.getUser(userId);
