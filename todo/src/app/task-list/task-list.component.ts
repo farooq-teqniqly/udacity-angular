@@ -2,6 +2,7 @@ import { Component, computed, input, signal } from "@angular/core";
 import { TaskComponent } from "../task/task.component";
 import { DUMMY_TASKS } from "../dummy-tasks";
 import { NewTaskComponent } from "../new-task/new-task.component";
+import { NewTask, Task } from "../models";
 
 @Component({
   selector: "app-task-list",
@@ -29,6 +30,17 @@ export class TaskListComponent {
   }
 
   onCancelNewTask() {
+    this.isAddingTask = false;
+  }
+
+  onAddNewTask(newTask: NewTask) {
+    const task: Task = {
+      ...newTask,
+      userId: this.userId(),
+      id: crypto.randomUUID(),
+    };
+
+    this.tasks.set([...this.tasks(), task]);
     this.isAddingTask = false;
   }
 }
