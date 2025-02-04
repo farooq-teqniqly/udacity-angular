@@ -16,11 +16,11 @@ export class AppComponent {
   selectedUser = signal<User | undefined>(undefined);
 
   constructor(private userService: UserService) {
-    this.users = this.userService.getAllUsers();
+    this.users = this.userService.getAllUsers()();
   }
 
   onSelectUser(userId: string) {
-    const user = this.userService.getUser(userId);
+    const user = this.userService.getUser(userId)();
     this.selectedUser.set(user ?? undefined);
   }
 }

@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
+import { computed, Injectable, signal } from "@angular/core";
 import { User } from "../models";
 
 @Injectable({ providedIn: "root" })
 export class UserService {
-  private users: User[] = [
+  private users = signal<User[]>([
     {
       id: "u1",
       name: "Jasmine Washington",
@@ -34,13 +34,13 @@ export class UserService {
       name: "Arjun Singh",
       avatar: "user-6.jpg",
     },
-  ];
+  ]);
 
   getAllUsers() {
-    return this.users;
+    return computed(() => this.users());
   }
 
   getUser(userId: string) {
-    return this.users.find((user) => user.id === userId);
+    return computed(() => this.users().find((user) => user.id === userId));
   }
 }
