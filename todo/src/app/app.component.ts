@@ -4,6 +4,7 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from "./dummy-users";
 import { TaskListComponent } from "./task-list/task-list.component";
 import { User } from "./models";
+import { UserService } from "./services/user.service";
 
 @Component({
   selector: "app-root",
@@ -15,8 +16,10 @@ export class AppComponent {
   users = DUMMY_USERS;
   selectedUser = signal<User | undefined>(undefined);
 
-  onSelectUser(id: string) {
-    const user = DUMMY_USERS.find((user) => user.id === id);
+  constructor(private userService: UserService) {}
+
+  onSelectUser(userId: string) {
+    const user = this.userService.getUser(userId);
     this.selectedUser.set(user ?? undefined);
   }
 }
