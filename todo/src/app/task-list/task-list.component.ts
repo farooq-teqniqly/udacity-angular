@@ -1,8 +1,8 @@
-import { Component, computed, input, signal } from "@angular/core";
+import { Component, computed, input } from "@angular/core";
 import { TaskComponent } from "../task/task.component";
-import { DUMMY_TASKS } from "../dummy-tasks";
 import { NewTaskComponent } from "../new-task/new-task.component";
-import { NewTask, Task } from "../models";
+import { NewTask } from "../models";
+import { TaskService } from "../services/task.service";
 
 @Component({
   selector: "app-task-list",
@@ -14,15 +14,16 @@ import { NewTask, Task } from "../models";
 export class TaskListComponent {
   userId = input.required<string>();
   userName = input.required<string>();
-  tasks = signal(DUMMY_TASKS);
   isAddingTask = false;
 
+  constructor(private taskService: TaskService) {}
+
   selectedUserTasks = computed(() =>
-    this.tasks().filter((task) => task.userId === this.userId())
+    this.taskService.getUserTasks(this.userId())()
   );
 
   onTaskComplete(taskId: string) {
-    this.tasks.set(this.tasks().filter((task) => task.id !== taskId));
+    this.taskService.removeTask(taskId);
   }
 
   onBeginNewTask() {
@@ -34,13 +35,7 @@ export class TaskListComponent {
   }
 
   onAddNewTask(newTask: NewTask) {
-    const task: Task = {
-      ...newTask,
-      userId: this.userId(),
-      id: crypto.randomUUID(),
-    };
-
-    this.tasks.set([...this.tasks(), task]);
+    this.taskService.addTask(newTask, this.userId());
     this.isAddingTask = false;
   }
 }
