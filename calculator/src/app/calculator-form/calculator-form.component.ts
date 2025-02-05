@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CalculatorService } from "../calculator.service";
 
@@ -19,9 +19,12 @@ export class CalculatorFormComponent {
   expectedReturn: number = this.expectedReturnRange[0];
   duration: number = this.durationRange[0];
 
+  calculationResult = output<number>();
+
   constructor(private calculatorService: CalculatorService) {}
 
   onCalculate() {
-    this.calculatorService.calculate();
+    const result = this.calculatorService.calculate();
+    this.calculationResult.emit(result);
   }
 }
