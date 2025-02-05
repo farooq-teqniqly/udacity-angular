@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { CalculatorService } from "../calculator.service";
 
 @Component({
   selector: "app-calculator-form",
@@ -18,5 +19,9 @@ export class CalculatorFormComponent {
   expectedReturn: number = this.expectedReturnRange[0];
   duration: number = this.durationRange[0];
 
-  onCalculate() {}
+  constructor(private calculatorService: CalculatorService) {}
+
+  onCalculate() {
+    this.calculatorService.calculate();
+  }
 }

@@ -1,19 +1,51 @@
 <form (ngSubmit)="onCalculate()">
   <p>
     <label for="initial-investment">Initial Investment</label>
-    <input id="initial-investment" name="initial-investment" type="number" min="{{initialInvestmentRange[0]}}" max="{{initialInvestmentRange[1]}}" step="1000" [(ngModel)]="initialInvestment">
+    <input
+      id="initial-investment"
+      name="initial-investment"
+      type="number"
+      min="{{ initialInvestmentRange[0] }}"
+      max="{{ initialInvestmentRange[1] }}"
+      step="1000"
+      [(ngModel)]="initialInvestment"
+    />
   </p>
   <p>
     <label for="annual-investment">Annual Investment</label>
-    <input id="annual-investment" name="annual-investment" type="number" min="{{annualInvestmentRange[0]}}" max="{{annualInvestmentRange[1]}}" step="100" [(ngModel)]="annualInvestment">
+    <input
+      id="annual-investment"
+      name="annual-investment"
+      type="number"
+      min="{{ annualInvestmentRange[0] }}"
+      max="{{ annualInvestmentRange[1] }}"
+      step="100"
+      [(ngModel)]="annualInvestment"
+    />
   </p>
   <p>
     <label for="expected-return">Expected Return</label>
-    <input id="expected-return" name="expected-return" type="number" min="{{expectedReturnRange[0]}}" max="{{expectedReturnRange[1]}}" step="1" [(ngModel)]="expectedReturn">
+    <input
+      id="expected-return"
+      name="expected-return"
+      type="number"
+      min="{{ expectedReturnRange[0] }}"
+      max="{{ expectedReturnRange[1] }}"
+      step="1"
+      [(ngModel)]="expectedReturn"
+    />
   </p>
   <p>
     <label for="duration">Duration</label>
-    <input id="duration" name="duration" type="number" min="{{durationRange[0]}}" max="{{durationRange[1]}}" step="1" [(ngModel)]="duration">
+    <input
+      id="duration"
+      name="duration"
+      type="number"
+      min="{{ durationRange[0] }}"
+      max="{{ durationRange[1] }}"
+      step="1"
+      [(ngModel)]="duration"
+    />
   </p>
   <p>
     <button type="submit">Calculate</button>

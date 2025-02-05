@@ -13,6 +13,10 @@
     "todo/**/*.{js,ts,json,css,scss,md,html}": [
       "npm --prefix ./todo run format",
       "npm --prefix ./todo run lint"
+    ],
+    "calculator/**/*.{js,ts,json,css,scss,md,html}": [
+      "npm --prefix ./calculator run format",
+      "npm --prefix ./calculator run lint"
     ]
   }
 }
