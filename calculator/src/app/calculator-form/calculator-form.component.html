@@ -5,8 +5,6 @@
       id="initial-investment"
       name="initial-investment"
       type="number"
-      min="{{ initialInvestmentRange[0] }}"
-      max="{{ initialInvestmentRange[1] }}"
       step="1000"
       [(ngModel)]="initialInvestment"
     />
@@ -17,8 +15,6 @@
       id="annual-investment"
       name="annual-investment"
       type="number"
-      min="{{ annualInvestmentRange[0] }}"
-      max="{{ annualInvestmentRange[1] }}"
       step="100"
       [(ngModel)]="annualInvestment"
     />
@@ -29,8 +25,6 @@
       id="expected-return"
       name="expected-return"
       type="number"
-      min="{{ expectedReturnRange[0] }}"
-      max="{{ expectedReturnRange[1] }}"
       step="1"
       [(ngModel)]="expectedReturn"
     />
@@ -41,8 +35,6 @@
       id="duration"
       name="duration"
       type="number"
-      min="{{ durationRange[0] }}"
-      max="{{ durationRange[1] }}"
       step="1"
       [(ngModel)]="duration"
     />
