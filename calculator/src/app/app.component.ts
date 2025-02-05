@@ -17,6 +17,7 @@ import { CalculatorService } from "./calculator.service";
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
+  atLeastOneCalculation = false;
   projectionTable: InvestmentProjectionTableRow[] = [];
 
   constructor(private calculatorService: CalculatorService) {}
@@ -26,5 +27,7 @@ export class AppComponent {
       this.calculatorService.calculateInvestmentProjectionTable(
         calculationParameters
       );
+
+    this.atLeastOneCalculation = true;
   }
 }
