@@ -1,6 +1,8 @@
 import { NewTask, Task } from "../models";
 import { computed, Injectable, signal } from "@angular/core";
 
+const LOCAL_STORAGE_KEY = "todo-tasks";
+
 @Injectable({ providedIn: "root" })
 export class TaskService {
   private tasks = signal<Task[]>([
@@ -34,6 +36,14 @@ export class TaskService {
     },
   ]);
 
+  constructor() {
+    const tasks = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (tasks) {
+      this.tasks = signal<Task[]>(JSON.parse(tasks));
+    }
+  }
+
   getUserTasks(userId: string) {
     return computed(() =>
       this.tasks().filter((task) => task.userId === userId)
@@ -49,9 +59,16 @@ export class TaskService {
       },
       ...tasks,
     ]);
+
+    this.saveTasks();
   }
 
   removeTask(taskId: string) {
     this.tasks.set(this.tasks().filter((task) => task.id !== taskId));
+    this.saveTasks();
+  }
+
+  private saveTasks() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.tasks()));
   }
 }
