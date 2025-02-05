@@ -1,7 +1,6 @@
 import { Component, output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { CalculatorService } from "../calculator.service";
-import { InvestmentProjectionTableRow } from "../invest-projection-table/investment-projection-table-row";
+import { CalculationParameters } from "./calculation-parameters.model";
 
 @Component({
   selector: "app-calculator-form",
@@ -20,19 +19,14 @@ export class CalculatorFormComponent {
   expectedReturn: number = this.expectedReturnRange[0];
   duration: number = this.durationRange[0];
 
-  calculationResult = output<InvestmentProjectionTableRow[]>();
+  formData = output<CalculationParameters>();
 
-  constructor(private calculatorService: CalculatorService) {}
-
-  onCalculate() {
-    const investmentProjectionTable =
-      this.calculatorService.calculateInvestmentProjectionTable({
-        initialInvestment: this.initialInvestment,
-        annualInvestment: this.annualInvestment,
-        expectedReturn: this.expectedReturn,
-        duration: this.duration,
-      });
-
-    this.calculationResult.emit(investmentProjectionTable);
+  onSubmit() {
+    this.formData.emit({
+      initialInvestment: this.initialInvestment,
+      annualInvestment: this.annualInvestment,
+      expectedReturn: this.expectedReturn,
+      duration: this.duration,
+    });
   }
 }

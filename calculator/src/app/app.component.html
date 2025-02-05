@@ -1,5 +1,5 @@
 <main>
   <app-header />
-  <app-calculator-form (calculationResult)="onResultCalculated($event)" />
+  <app-calculator-form (formData)="calculateProjectionTable($event)" />
   <app-invest-projection-table [table]="projectionTable" />
 </main>
