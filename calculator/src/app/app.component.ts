@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { CalculatorFormComponent } from "./calculator-form/calculator-form.component";
 import { InvestProjectionTableComponent } from "./invest-projection-table/invest-projection-table.component";
+import { InvestmentProjectionTableRow } from "./invest-projection-table/investment-projection-table-row";
 
 @Component({
   selector: "app-root",
@@ -14,9 +15,11 @@ import { InvestProjectionTableComponent } from "./invest-projection-table/invest
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  projectionTable = 100;
+  projectionTable: InvestmentProjectionTableRow[] = [];
 
-  onResultCalculated(result: number) {
-    this.projectionTable = result;
+  onResultCalculated(
+    investmentProjectionTable: InvestmentProjectionTableRow[]
+  ) {
+    this.projectionTable = investmentProjectionTable;
   }
 }

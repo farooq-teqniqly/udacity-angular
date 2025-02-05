@@ -1,1 +1,20 @@
-<p>Result: {{ table() }}</p>
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+    @for (row of table(); track $index) {
+      <tr>
+        <th>{{ row.year }}</th>
+        <th>{{ row.investmentValue }}</th>
+        <th>{{ row.interestAmount }}</th>
+        <th>{{ row.totalInterest }}</th>
+        <th>{{ row.investmentCapital }}</th>
+      </tr>
+    }
+  </thead>
+</table>

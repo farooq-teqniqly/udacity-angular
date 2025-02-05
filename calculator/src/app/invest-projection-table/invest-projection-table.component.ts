@@ -1,4 +1,5 @@
 import { Component, input } from "@angular/core";
+import { InvestmentProjectionTableRow } from "./investment-projection-table-row";
 
 @Component({
   selector: "app-invest-projection-table",
@@ -7,5 +8,5 @@ import { Component, input } from "@angular/core";
   styleUrl: "./invest-projection-table.component.css",
 })
 export class InvestProjectionTableComponent {
-  table = input.required<number>();
+  table = input.required<InvestmentProjectionTableRow[]>();
 }
