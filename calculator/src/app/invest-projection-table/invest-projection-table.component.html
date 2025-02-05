@@ -10,10 +10,10 @@
     @for (row of table(); track $index) {
       <tr>
         <th>{{ row.year }}</th>
-        <th>{{ row.investmentValue }}</th>
-        <th>{{ row.interestAmount }}</th>
-        <th>{{ row.totalInterest }}</th>
-        <th>{{ row.investmentCapital }}</th>
+        <th>{{ row.investmentValue | currency }}</th>
+        <th>{{ row.interestAmount | currency }}</th>
+        <th>{{ row.totalInterest | currency }}</th>
+        <th>{{ row.investmentCapital | currency }}</th>
       </tr>
     }
   </thead>
