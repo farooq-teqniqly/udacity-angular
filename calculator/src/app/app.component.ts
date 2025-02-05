@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 import { HeaderComponent } from "./header/header.component";
 import { CalculatorFormComponent } from "./calculator-form/calculator-form.component";
 import { InvestProjectionTableComponent } from "./invest-projection-table/invest-projection-table.component";
@@ -17,7 +17,7 @@ import { CalculatorService } from "./calculator.service";
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  atLeastOneCalculation = false;
+  atLeastOneCalculation = signal(false);
   projectionTable: InvestmentProjectionTableRow[] = [];
 
   constructor(private calculatorService: CalculatorService) {}
@@ -28,6 +28,6 @@ export class AppComponent {
         calculationParameters
       );
 
-    this.atLeastOneCalculation = true;
+    this.atLeastOneCalculation.set(true);
   }
 }
