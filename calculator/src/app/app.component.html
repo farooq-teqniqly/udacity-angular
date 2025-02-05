@@ -2,6 +2,6 @@
   <app-header />
   <app-calculator-form (formData)="calculateProjectionTable($event)" />
   @if (atLeastOneCalculation()) {
-    <app-invest-projection-table [table]="projectionTable" />
+    <app-invest-projection-table [table]="projectionTable()" />
   }
 </main>

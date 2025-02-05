@@ -18,15 +18,16 @@ import { CalculatorService } from "./calculator.service";
 })
 export class AppComponent {
   atLeastOneCalculation = signal(false);
-  projectionTable: InvestmentProjectionTableRow[] = [];
+  projectionTable = signal<InvestmentProjectionTableRow[]>([]);
 
   constructor(private calculatorService: CalculatorService) {}
 
   calculateProjectionTable(calculationParameters: CalculationParameters) {
-    this.projectionTable =
+    this.projectionTable.set(
       this.calculatorService.calculateInvestmentProjectionTable(
         calculationParameters
-      );
+      )
+    );
 
     this.atLeastOneCalculation.set(true);
   }
