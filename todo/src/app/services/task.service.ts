@@ -5,7 +5,7 @@ const LOCAL_STORAGE_KEY = "todo-tasks";
 
 @Injectable({ providedIn: "root" })
 export class TaskService {
-  private tasks = signal<Task[]>([
+  private readonly tasks = signal<Task[]>([
     {
       id: "1",
       userId: "u1",
