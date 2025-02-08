@@ -17,6 +17,10 @@
     "calculator/**/*.{js,ts,json,css,scss,md,html}": [
       "npm --prefix ./calculator run format",
       "npm --prefix ./calculator run lint"
+    ],
+    "server-manager/**/*.{js,ts,json,css,scss,md,html}": [
+      "npm --prefix ./server-manager run format",
+      "npm --prefix ./server-manager run lint"
     ]
   }
 }
