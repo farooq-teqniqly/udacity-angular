@@ -1,0 +1,16 @@
+@if (isPriority()) {
+  <img
+    priority
+    ngSrc="{{ imageSpec().path }}"
+    width="{{ imageSpec()?.width }}"
+    height="{{ imageSpec()?.height }}"
+    alt="{{ imageSpec().altText }}"
+  />
+} @else {
+  <img
+    ngSrc="{{ imageSpec().path }}"
+    width="{{ imageSpec().width }}"
+    height="{{ imageSpec().height }}"
+    alt="{{ imageSpec().altText }}"
+  />
+}
