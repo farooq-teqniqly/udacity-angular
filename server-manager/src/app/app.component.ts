@@ -21,22 +21,22 @@ import { ImageSpec } from "./optimized-image/image-spec.model";
 export class AppComponent {
   serverStatusImageSpec: ImageSpec = {
     path: "/status.png",
-    height: 262,
-    width: 400,
+    height: 21,
+    width: 32,
     altText: "A signal symbol",
   };
 
   trafficImageSpec = {
     path: "/globe.png",
-    height: 289,
-    width: 300,
+    height: 30,
+    width: 32,
     altText: "A globe",
   };
 
   ticketsImageSpec = {
     path: "/list.png",
-    height: 315,
-    width: 250,
+    height: 32,
+    width: 25,
     altText: "A list of items",
   };
 }

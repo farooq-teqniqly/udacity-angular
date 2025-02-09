@@ -12,8 +12,8 @@ import { ButtonComponent } from "../shared/button/button.component";
 export class HeaderComponent {
   imageSpec: ImageSpec = {
     path: "/logo.png",
-    height: 397,
-    width: 280,
+    height: 64,
+    width: 45,
     altText: "Website logo, a server",
   };
 }
