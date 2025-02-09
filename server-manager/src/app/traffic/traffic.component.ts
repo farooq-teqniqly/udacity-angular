@@ -1,21 +1,12 @@
 import { Component } from "@angular/core";
-import { OptimizedImageComponent } from "../optimized-image/optimized-image.component";
-import { ImageSpec } from "../optimized-image/image-spec.model";
 
 @Component({
   selector: "app-traffic",
-  imports: [OptimizedImageComponent],
+  imports: [],
   templateUrl: "./traffic.component.html",
   styleUrl: "./traffic.component.css",
 })
 export class TrafficComponent {
-  imageSpec: ImageSpec = {
-    path: "/globe.png",
-    height: 289,
-    width: 300,
-    altText: "A globe",
-  };
-
   dummyTrafficData = [
     {
       id: "d1",
