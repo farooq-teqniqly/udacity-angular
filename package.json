@@ -21,6 +21,10 @@
     "server-manager/**/*.{js,ts,json,css,scss,md,html}": [
       "npm --prefix ./server-manager run format",
       "npm --prefix ./server-manager run lint"
+    ],
+    "placepicker/**/*.{js,ts,json,css,scss,md,html}": [
+      "npm --prefix ./placepicker run format",
+      "npm --prefix ./placepicker run lint"
     ]
   }
 }
